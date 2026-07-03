@@ -4,11 +4,14 @@ import java.util.TreeSet;
 
 public class TreeSetExample {
 	public static void main(String[] args) {
-		TreeSet<String> t=new TreeSet<>(new MyComparator());
-		t.add("Roja");
-		t.add("ShobaRani");
-		t.add("RajaKumari");
-		t.add("Ramulamma");
+		TreeSet<Person> t=new TreeSet<>(new PersonComparator());
+		t.add(new Person(102,"Charlie","charlie@gmail.com"));
+		t.add(new Person(101,"Alice","alice@gmail.com"));
+		t.add(new Person(103,"Bob","bob@gmail.com"));
 		System.out.println(t);
+		for(Person p:t)
+		{
+			System.out.println(p);
+		}
 	}
 }
