@@ -1,7 +1,26 @@
 package com.codegnan.collections;
 
+import java.util.Objects;
+
 public class Employee {
 	
+	@Override
+	public int hashCode() {
+		return Objects.hash(empAddress, empId, empName, empSalary);
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Employee other = (Employee) obj;
+		return Objects.equals(empAddress, other.empAddress) && empId == other.empId
+				&& Objects.equals(empName, other.empName)
+				&& Double.doubleToLongBits(empSalary) == Double.doubleToLongBits(other.empSalary);
+	}
 	private int empId;
 	private String empName;
 	private double empSalary;
@@ -38,7 +57,7 @@ public class Employee {
 	}
 	public String getEmpAddress() {
 		return empAddress;
-	}
+	} 
 	public void setEmpAddress(String empAddress) {
 		this.empAddress = empAddress;
 	}
